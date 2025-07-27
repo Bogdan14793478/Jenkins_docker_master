@@ -1,0 +1,180 @@
+jenkins:
+  nodes:
+    - permanent:
+        name: "joda"
+        remoteFS: "/var/jenkins_home"
+        numExecutors: 2
+        labelString: "joda"
+        mode: NORMAL
+        retentionStrategy: always
+
+
+
+  authorizationStrategy:
+    projectMatrix:
+      entries:
+        - user:
+            name: "bogdan"
+            permissions:
+              - "Agent/Build"
+              - "Agent/Configure"
+              - "Agent/Connect"
+              - "Agent/Create"
+              - "Agent/Delete"
+              - "Agent/Disconnect"
+              - "Agent/Provision"
+              - "Credentials/Create"
+              - "Credentials/Delete"
+              - "Credentials/ManageDomains"
+              - "Credentials/Update"
+              - "Credentials/View"
+              - "Job/Build"
+              - "Job/Cancel"
+              - "Job/Configure"
+              - "Job/Create"
+              - "Job/Delete"
+              - "Job/Discover"
+              - "Job/Move"
+              - "Job/Read"
+              - "Job/Workspace"
+              - "Overall/Administer"
+              - "Overall/Read"
+              - "Run/Delete"
+              - "Run/Replay"
+              - "Run/Update"
+              - "SCM/Tag"
+              - "View/Configure"
+              - "View/Create"
+              - "View/Delete"
+              - "View/Read"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  labelAtoms:
+    - name: "built-in"
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  nodeMonitors:
+    - "architecture"
+    - "clock"
+    - diskSpace:
+        freeSpaceThreshold: "1GiB"
+        freeSpaceWarningThreshold: "2GiB"
+    - "swapSpace"
+    - tmpSpace:
+        freeSpaceThreshold: "1GiB"
+        freeSpaceWarningThreshold: "2GiB"
+    - "responseTime"
+  numExecutors: 2
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  securityRealm:
+    local:
+      allowsSignup: false
+      enableCaptcha: false
+      users:
+        - id: "bogdan"
+          name: "bogdan"
+          properties:
+            - "apiToken"
+            - "consoleUrlProvider"
+            - "mailer"
+            - "favorite"
+            - "myView"
+            - preferredProvider:
+                providerId: "default"
+            - theme:
+                theme: "noOp"
+            - "timezone"
+            - "experimentalFlags"
+  slaveAgentPort: 50000
+  systemMessage: |+
+    Jenkins configured automatically by Jenkins Configuration as Code plugin
+
+  updateCenter:
+    sites:
+      - id: "default"
+        url: "https://updates.jenkins.io/update-center.json"
+  views:
+    - all:
+        name: "all"
+  viewsTabBar: "standard"
+globalCredentialsConfiguration:
+  configuration:
+    providerFilter: "none"
+    typeFilter: "none"
+appearance:
+  prism:
+    theme: PRISM
+  themeManager:
+    disableUserThemes: false
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  cps:
+    hideSandbox: false
+  gitHooks:
+    allowedOnAgents: false
+    allowedOnController: false
+  gitHostKeyVerificationConfiguration:
+    sshHostKeyVerificationStrategy: "knownHostsFileVerificationStrategy"
+  globalJobDslSecurityConfiguration:
+    useScriptSecurity: true
+  scriptApproval:
+    approvedSignatures:
+      - "method hudson.plugins.git.GitSCM getBranches"
+unclassified:
+  bitbucketEndpointConfiguration:
+    endpoints:
+      - bitbucketCloudEndpoint:
+          enableCache: false
+          enableHookSignature: false
+          manageHooks: false
+          repositoriesCacheDuration: 0
+          teamCacheDuration: 0
+  buildDiscarders:
+    configuredBuildDiscarders:
+      - "jobBuildDiscarder"
+  fingerprints:
+    fingerprintCleanupDisabled: false
+    storage: "file"
+  gitHubConfiguration:
+    apiRateLimitChecker: ThrottleForNormalize
+  gitHubPluginConfig:
+    hookUrl: "http://localhost:8080/github-webhook/"
+  junitTestResultStorage:
+    storage: "file"
+  location:
+    adminAddress: "адрес еще не настроен <nobody@nowhere>"
+  mailer:
+    charset: "UTF-8"
+    useSsl: false
+    useTls: false
+  pollSCM:
+    pollingThreadCount: 10
+  scmGit:
+    addGitTagAction: false
+    allowSecondFetch: false
+    createAccountBasedOnEmail: false
+    disableGitToolChooser: false
+    hideCredentials: false
+    showEntireCommitSummaryInChanges: false
+    useExistingAccountWithSameEmail: false
+tool:
+  git:
+    installations:
+      - home: "git"
+        name: "Default"
+  mavenGlobalConfig:
+    globalSettingsProvider: "standard"
+    settingsProvider: "standard"
