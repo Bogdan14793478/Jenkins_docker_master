@@ -6,6 +6,7 @@ import core.JenkinsScript
 
 @BaseScript JenkinsScript jenkinsScript
 
+// TODO - scripts not work, after him - another scripts not work
 def workspace = new File("Tools")
 
 def jobManagement = new JenkinsJobManagement(System.out, [:], workspace)
@@ -16,4 +17,4 @@ def systemFolder = 'Tools'
 
 """ + new File("${Jenkins.get().getRootDir().absolutePath}/init.groovy.d/lib/create_job_update_plugins_versions.groovy").getText('UTF-8').stripIndent().trim()
 
-new DslScriptLoader(jobManagement).runScript(jobScript)s
+new DslScriptLoader(jobManagement).runScript(jobScript)
