@@ -10,5 +10,3 @@ COPY init.groovy.d /var/jenkins_home/init.groovy.d/
 COPY jenkins.yaml /opt/jenkins/jenkins.yaml
 
 RUN jenkins-plugin-cli --plugin-file /opt/jenkins/plugins.txt
-
-
