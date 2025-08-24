@@ -1,17 +1,12 @@
 node {
     stage('Checkout') {
-        git 'https://github.com/your-org/your-repo.git'
-    }
+                deleteDir() // Workdir cleanup
+                def scmVars = checkout scm
 
-    stage('Install dependencies') {
-        sh 'npm install'
-    }
-
-    stage('Run tests') {
-        sh 'npm test'
-    }
-
-    stage('Finish') {
-        echo 'Pipeline finished.'
+                REVISION = scmVars.GIT_COMMIT
+                TAG = "${REVISION[0..7]}-${UUID.randomUUID().toString()[-12..-1]}"
+                echo "Revision: ${REVISION}"
+                echo "Tag: ${TAG}"
+            }
     }
 }
