@@ -9,7 +9,10 @@ node {
         echo "Tag: ${TAG}"
     }
     stage('Build') {
-//        sh docker.build
-        sh 'echo "Hello world"'
+        sh """
+            docker build \
+           -t bogdan1chernet/jenkins-docker-master:v${TAG} \
+           --push . """
     }
 }
+

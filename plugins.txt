@@ -120,3 +120,4 @@ job-dsl:1.93
 script-security:1373.vb_b_4a_a_c26fa_00
 groovy:497.v7b_061a_a_de65d
 job-restrictions:216.v0732cc7fb_076
+prism-api:1.30.0-1
