@@ -9,4 +9,3 @@ node {
                 echo "Tag: ${TAG}"
             }
     }
-}
