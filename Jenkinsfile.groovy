@@ -9,10 +9,23 @@ node {
         echo "Tag: ${TAG}"
     }
     stage('Build') {
-        sh """
-            docker build \
-           -t bogdan1chernet/jenkins-docker-master:v${TAG} \
-           --push . """
+        withCredentials(
+                [
+                        usernamePassword(
+                                credentialsId: 'jenkins_docker_master_secret_docker_hub',
+                                usernameVariable: 'DOCKER_USER',
+                                passwordVariable: 'DOCKER_PASS'
+                        )
+                ]
+        ) {
+            sh """
+        echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+
+        docker build \
+          -t bogdan1chernet/jenkins-docker-master:v${TAG} \
+          --push .
+        """
+        }
     }
 }
 
