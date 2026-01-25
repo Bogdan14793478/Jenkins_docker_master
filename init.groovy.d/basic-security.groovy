@@ -4,8 +4,8 @@ import jenkins.model.*
 import hudson.security.*
 
 // Get environment variables
-def adminUser = System.getenv('JENKINS_ADMIN_USER')
-def adminPass = System.getenv('JENKINS_ADMIN_PASS')
+def adminUser = "admin"
+def adminPass = "admin123"
 
 // Check if both variables are present
 if (!adminUser || !adminPass) {
