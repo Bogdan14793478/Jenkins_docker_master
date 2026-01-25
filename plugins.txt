@@ -122,3 +122,4 @@ job-restrictions:216.v0732cc7fb_076
 prism-api:1.30.0-1
 locale:597.v7781ce70d4cf
 prometheus:819.v50953a_c560dd
+monitoring:2.6.0
