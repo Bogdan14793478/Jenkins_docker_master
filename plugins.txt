@@ -124,3 +124,11 @@ locale:597.v7781ce70d4cf
 prometheus:819.v50953a_c560dd
 monitoring:2.6.0
 cloudbees-disk-usage-simple:205.v47f4ee8803d1
+telegram-notifications:1.4.0
+token-macro:477.vd4f0dc3cb_cf1
+commons-lang3-api:3.20.0-109.ve43756e2d2b_4
+commons-text-api:1.15.0-210.v7480a_da_70b_9e
+json-path-api:2.10.0-202.va_9cc16c1e476
+asm-api:9.9.1-189.vb_5ef2964da_91
+workflow-step-api:710.v3e456cc85233
+structs:362.va_b_695ef4fdf9
